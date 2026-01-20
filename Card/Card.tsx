@@ -131,7 +131,7 @@ const Cardd = () => {
               <Group  mt={2}>
                 <IconEye size={14} />
                 <Text size="xs" c="dimmed">
-                  1.2k views • 2 days ago
+                  1.2M views • 2 days ago
                 </Text>
               </Group>
             </Box>

@@ -9,17 +9,20 @@ import {
   Avatar,
   Button,
   Group,
-  Badge,
+  ActionIcon,
 } from "@mantine/core";
 import {
   IconBrandYoutube,
   IconBrandInstagram,
+  IconBrandFacebook,
+  IconBrandTwitter,
 } from "@tabler/icons-react";
+import { CgProfile } from "react-icons/cg";
 
 const Profile = () => {
   return (
     <Box p="xl" maw={900} mx="auto">
-      {/* Profile Card */}
+      {/* ================= PROFILE CARD ================= */}
       <Card radius="xl" shadow="md" p="xl" withBorder>
         <Group align="center" wrap="nowrap">
           {/* Avatar */}
@@ -38,6 +41,7 @@ const Profile = () => {
               RK Swami
             </Text>
 
+            {/* Buttons */}
             <Group mt="md">
               <Button
                 leftSection={<IconBrandYoutube size={18} />}
@@ -45,11 +49,11 @@ const Profile = () => {
                 radius="xl"
                 fw={900}
               >
-                subscribers
+                Subscribe
               </Button>
 
               <Button
-                leftSection={<IconBrandInstagram size={18} fontWeight={900} />}
+                leftSection={<IconBrandInstagram size={18} />}
                 variant="outline"
                 radius="xl"
                 fw={900}
@@ -57,21 +61,99 @@ const Profile = () => {
                 Follow
               </Button>
             </Group>
+
+            {/* Social Media Icons */}
+            <Group mt="sm" gap="md">
+              <ActionIcon
+                component="a"
+                href="https://www.youtube.com/@Heartshiyar0010"
+                target="_blank"
+                size="lg"
+                radius="xl"
+                color="red"
+                variant="light"
+                
+              >
+                <IconBrandYoutube size={22} />
+              </ActionIcon>
+
+              <ActionIcon
+                component="a"
+                href="https://www.instagram.com/prince_pardhan_325?igsh=dTNqMnEybndmc3c2"
+                target="_blank"
+                size="lg"
+                radius="xl"
+                color="pink"
+                variant="light"
+              >
+                <IconBrandInstagram size={22} />1
+              </ActionIcon>
+              <ActionIcon
+                component="a"
+                href="https://www.instagram.com/rk_shiyar_001?igsh=MWNzeW5sZ3ZqZDdscw=="
+                target="_blank"
+                size="lg"
+                radius="xl"
+                color="pink"
+                variant="light"
+              >
+                <IconBrandInstagram size={22} />2
+              </ActionIcon>
+
+              <ActionIcon
+                component="a"
+                href="https://www.facebook.com/share/r/1DAxEtF2s5/"
+                target="_blank"
+                size="lg"
+                radius="xl"
+                color="blue"
+                variant="light"
+              >
+                <IconBrandFacebook size={22} />
+              </ActionIcon>
+
+              <ActionIcon
+                component="a"
+                href="https://x.com/Rkswami001"
+                target="_blank"
+                size="lg"
+                radius="xl"
+                color="dark"
+                variant="light"
+              >
+                <IconBrandTwitter size={22} />
+              </ActionIcon>
+
+
+              <ActionIcon
+                component="a"
+                href="https://www.rahulswami.online/"
+                target="_blank"
+                size="lg"
+                radius="xl"
+                color="dark"
+                variant="light"
+              >
+               <CgProfile  size={22}/>
+
+              </ActionIcon>
+            </Group>
+
             <Text c="dimmed" mt={8}>
-              Music • DJ • Shorts Creator (Uk)
+              Music • DJ • Shorts Creator (UK)
             </Text>
           </Box>
         </Group>
       </Card>
 
-      {/* Stats Section */}
+      {/* ================= STATS ================= */}
       <SimpleGrid cols={{ base: 1, sm: 3 }} mt="xl">
         {[
-          { label: "Subscribers", value: "1M" },
-          { label: "Videos", value: "8" },
-          // { label: "Total Views", value: "5.2M" },
+          { label: "Subscribers", value: "1M+" },
+          { label: "Videos", value: "300+" },
+          { label: "Experience", value: "2 Years" },
         ].map((item, i) => (
-          <Card key={i} withBorder radius="lg" p="md">
+          <Card key={i} withBorder radius="lg" p="md" shadow="sm">
             <Text ta="center" fw={900} fz={24}>
               {item.value}
             </Text>
@@ -82,27 +164,47 @@ const Profile = () => {
         ))}
       </SimpleGrid>
 
-      {/* About Section */}
-      <Card radius="xl" shadow="sm" p="xl" withBorder mt="xl">
-        <Text fw={900} fz={40}>
+      {/* ================= ABOUT ================= */}
+      <Card
+        radius="xl"
+        shadow="lg"
+        p="xl"
+        withBorder
+        mt="xl"
+        style={{
+          background:
+            "linear-gradient(180deg, #ffffff, #f8f9fa)",
+        }}
+      >
+        <Text fw={900} fz={38} mb={6}>
           About Me
         </Text>
-        <Text c="dimmed" mt="sm">
-          Hello  I am RK Swami, a professional DJ & music creator.
-          I upload remix songs, mashups & viral shorts  <br />
 
-          Chanakya said that the one who controls Sama, Dana, Danda, and Bhed is called a
-          king — what we now call a hacker. And I control all three of them <br /> <br />
-          Hii, I am Editing (and) Full Stack Developer
+        <Text c="dimmed" fz={16} lh={1.8}>
+          Hello, I’m <b>RK Swami</b> — a professional <b>DJ & Music Creator</b>.
+          I create remix songs, mashups, and viral shorts that connect
+          rhythm with emotion. 🎧
+          <br /><br />
 
-          With 8 month of experience Editing, working with (Cult Music Production) and (Ks Junction Sirsa),
-          I bring together creativity, structure, and precision to every project I take on. <br /><br />
+          <i>
+            “The one who controls Sama, Dana, Danda, and Bhed is called a king.”
+          </i>{" "}
+          — Chanakya.
+          <br /><br />
 
-          200+ Long video 300+ Short Video
-          Editing ki h (And) 2 years complite in Editing Cours
-          Every project is a new experience for me, where I use my creativity, timing, and passion to make every moment special.
-          The one behind the camera, showing the world a new perspective. (Editor)
+          I’m also a <b>Video Editor</b> and <b>Full-Stack Developer</b> with
+          <b> 8+ months</b> of professional editing experience.
+          I’ve worked with <b>Cult Music Production</b> and
+          <b> KS Junction Sirsa</b>.
+          <br /><br />
 
+          • 200+ Long-form Videos <br />
+          • 300+ Short-form Videos <br />
+          • 2 Years Professional Editing Course
+          <br /><br />
+
+          Every project is a new journey — where creativity,
+          timing, and passion come together to tell a powerful story. 🎬
         </Text>
       </Card>
     </Box>
