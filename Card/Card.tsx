@@ -8,30 +8,25 @@ import {
   SimpleGrid,
   Group,
   Avatar,
+  ActionIcon,
 } from "@mantine/core";
-import { IconEye } from "@tabler/icons-react";
+import { IconEye, IconPlayerPlay } from "@tabler/icons-react";
 
-// 🔁 YouTube link → Embed link (ERROR FREE)
+// 🔁 YouTube link → Embed link (SAFE)
 const getEmbedUrl = (url: string): string => {
   try {
-    // Shorts
     if (url.includes("youtube.com/shorts/")) {
       const id = url.split("shorts/")[1].split("?")[0];
       return `https://www.youtube.com/embed/${id}`;
     }
-
-    // youtu.be
     if (url.includes("youtu.be/")) {
       const id = url.split("youtu.be/")[1].split("?")[0];
       return `https://www.youtube.com/embed/${id}`;
     }
-
-    // Normal watch
     if (url.includes("watch?v=")) {
       const id = url.split("watch?v=")[1].split("&")[0];
       return `https://www.youtube.com/embed/${id}`;
     }
-
     return url;
   } catch {
     return "";
@@ -53,40 +48,42 @@ const Cardd = () => {
   return (
     <SimpleGrid
       cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
-      spacing="xl"
+      spacing={28}
     >
       {videos.map((link, index) => (
         <Card
           key={index}
-          radius="lg"
+          radius="xl"
           p="xs"
           withBorder
           style={{
             cursor: "pointer",
-            transition: "0.3s ease",
+            transition: "all 0.35s ease",
+            overflow: "hidden",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.04)";
+            e.currentTarget.style.transform = "translateY(-6px)";
             e.currentTarget.style.boxShadow =
-              "0 10px 30px rgba(0,0,0,0.2)";
+              "0 20px 40px rgba(0, 0, 0, 0.25)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = "none";
           }}
         >
-          {/* VIDEO (Shorts Ratio) */}
+          {/* 🎬 VIDEO */}
           <Box
             style={{
               position: "relative",
               paddingBottom: "177%",
-              borderRadius: "14px",
+              borderRadius: 18,
               overflow: "hidden",
+              background: "#000",
             }}
           >
             <iframe
               src={getEmbedUrl(link)}
-              title={`video-${index}`}
+              title={`short-${index}`}
               allow="autoplay; encrypted-media"
               allowFullScreen
               style={{
@@ -98,29 +95,54 @@ const Cardd = () => {
               }}
             />
 
-            {/* Duration badge */}
+            {/* ▶ Play Overlay */}
             <Box
               style={{
                 position: "absolute",
-                bottom: 8,
-                right: 8,
-                background: "rgba(0,0,0,0.8)",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.55), transparent)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                opacity: 0,
+                transition: "0.3s",
+              }}
+              className="play-overlay"
+            >
+              <ActionIcon
+                size={58}
+                radius="xl"
+                color="red"
+                variant="filled"
+              >
+                <IconPlayerPlay size={30} />
+              </ActionIcon>
+            </Box>
+
+            {/* ⏱ Duration */}
+            <Box
+              style={{
+                position: "absolute",
+                bottom: 10,
+                right: 10,
+                background: "rgba(0,0,0,0.85)",
                 color: "#fff",
                 fontSize: 11,
-                padding: "2px 6px",
-                borderRadius: 6,
+                padding: "3px 8px",
+                borderRadius: 8,
               }}
             >
               0:30
             </Box>
           </Box>
 
-          {/* INFO */}
-          <Group mt="sm" align="flex-start">
-            <Avatar radius="xl" size="sm" />
+          {/* 📌 INFO */}
+          <Group mt="md" align="flex-start" gap={10}>
+            <Avatar radius="xl" size={36} />
 
             <Box>
-              <Text fw={600} size="sm" lineClamp={2}>
+              <Text fw={700} size="sm" lineClamp={2}>
                 RK Swami Viral Song 2026 • #{index + 1}
               </Text>
 
@@ -128,7 +150,7 @@ const Cardd = () => {
                 RK Swami Music
               </Text>
 
-              <Group  mt={2}>
+              <Group gap={6} mt={4}>
                 <IconEye size={14} />
                 <Text size="xs" c="dimmed">
                   1.2M views • 2 days ago
@@ -136,6 +158,13 @@ const Cardd = () => {
               </Group>
             </Box>
           </Group>
+
+          {/* Hover CSS */}
+          <style jsx>{`
+            .play-overlay:hover {
+              opacity: 1;
+            }
+          `}</style>
         </Card>
       ))}
     </SimpleGrid>

@@ -1,85 +1,128 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Text, Flex, Divider, Anchor } from "@mantine/core";
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { GrLinkedin } from "react-icons/gr";
+import { MdLocationOn } from "react-icons/md";
+
 export default function Footer() {
+  const [location, setLocation] = useState<string>("Haryaan Sirsa Madhosinghana");
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setLocation("Location not supported");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude.toFixed(4);
+        const lng = position.coords.longitude.toFixed(4);
+        setLocation(`Lat: ${lat}, Lng: ${lng}`);
+      },
+      () => {
+        setLocation("Location permission denied");
+      }
+    );
+  }, []);
+
   return (
-    <Box bg="#000000" c="red" mt={50}>
-      {/* Top Section */}
-      <Flex
-        px={{ base: 50, md: 100 }}
-        py={20}
-        justify="space-between"
-        wrap="wrap"
-        gap={30}
-      >
+    <Box
+      bg="#0b0b0b"
+      c="white"
+      mt={60}
+      px={{ base: 20, md: 80 }}
+      py={50}
+    >
+      {/* 🔝 Top Section */}
+      <Flex justify="space-between" wrap="wrap" gap={40}>
         {/* Brand */}
-        <Box w={250}>
-          <Flex align="center" gap={8}>
-            <FaYoutube size={32} color="red" />
-            <Text fz={21} fw={900} c={"blue"}>
-              Rk swami
-              <Divider /><Divider /><Divider /> <Divider />
+        <Box w={260}>
+          <Flex align="center" gap={10}>
+            <FaYoutube size={36} color="red" />
+            <Text fz={24} fw={900}>
+              RK <span style={{ color: "red" }}>Swami</span>
+            </Text>
+
+          </Flex>
+                      <Divider fw={900}/>
+
+          <Text fz={14} mt={15} c="gray.5">
+            Singer • Lyrics • Composer • Music <br />
+            Mix & Master – RK Swami <br />
+            Editor – RK Swami
+          </Text>
+
+          {/* 📍 Live Location */}
+          <Flex align="center" gap={6} mt={12}>
+            <MdLocationOn color="red" />
+            <Text fz={12} c="gray.4">
+              {location}
             </Text>
           </Flex>
-          <Text fz={14} mt={10} c="gray.5" fw={900}>
-            Singer/Lyrics/Compose/Music/Mix&Master- RK SWAMI <br />
-            Singer & Lyrics: rk swami
-            <br /> MUSIC & MIX MASTER : rk swami <br />
-            Editor : rk swami <br />
+        </Box>
+
+        {/* Links Part 1 */}
+        <Box>
+          <Text fw={800} mb={12} c="blue">
+            PART – 1
           </Text>
+                    <Divider fw={900}/>
+
+          <Anchor href="https://prince-pardhan.github.io/farming/" target="_blank" c="gray.5">Farming</Anchor><br/>
+          <Anchor href="https://www.rahulswami.online/" target="_blank" c="gray.5">Rahul</Anchor><br/>
+          <Anchor href="https://prince-pardhan.github.io/rameshkumar/" target="_blank" c="gray.5">Ramesh</Anchor>
         </Box>
 
-        {/* Explore Links */}
+        {/* Links Part 2 */}
         <Box>
-          <Text fw={900} mb={10} c={"blue"}>
-            Part=1
-            <Divider /><Divider /><Divider /> <Divider />          </Text>
-          <Anchor href="https://prince-pardhan.github.io/farming/" c="gray.5" display="block" target="_blank" fw={900}>Farma</Anchor>
-          <Anchor href="https://www.rahulswami.online/" c="gray.5" display="block" target="_blank" fw={900}>Rahul</Anchor>
-          <Anchor href="https://prince-pardhan.github.io/rameshkumar/" c="gray.5" display="block" target="_blank" fw={900}>Ramesh</Anchor>
-
-        </Box>
-
-
-        <Box>
-          <Text fw={900} mb={10} c={"blue"}>
-            Part=2
-            <Divider /><Divider /><Divider /> <Divider />          </Text>
-          <Anchor href="https://github.com/prince-pardhan" c="gray.5" display="block" target="_blank" fw={900}>Git</Anchor>
-          <Anchor href="https://news-ten-beige.vercel.app/" c="gray.5" display="block" target="_blank" fw={900}>News</Anchor>
-          <Anchor href="https://www.snapchat.com/add/user984333902?share_id=Dp7iJJr_VR8&locale=en-IN" c="gray.5" display="block" target="_blank" fw={900}>snapchat</Anchor>
-        </Box>
-        <Box>
-          <Text fw={900} mb={10} c={"blue"}>
-            Follow Us
-            <Divider /><Divider /><Divider /> <Divider />
+          <Text fw={800} mb={12} c="blue">
+            PART – 2
           </Text>
-          <Flex gap={15}>
-            <Anchor href="https://x.com/Rkswami001" c="gray.5" display="block" target="_blank" fw={900}> <FaTwitter size={30} color="blue" /> </Anchor>
-            <Anchor href="https://www.facebook.com/share/r/1DAxEtF2s5/" c="gray.5" display="block" target="_blank" fw={900}><FaFacebook size={30} color="blue" /></Anchor>
-            <Anchor href="https://www.instagram.com/prince_pardhan_325?igsh=dTNqMnEybndmc3c2" c="gray.5" display="block" target="_blank" fw={900}><FaInstagram size={30} color="red"/>1</Anchor>
-            <Anchor href="https://www.instagram.com/rk_shiyar_001?igsh=MWNzeW5sZ3ZqZDdscw==" c="gray.5" display="block" target="_blank" fw={900}><FaInstagram size={30}color="red" />2</Anchor>
-            <Anchor href="https://www.youtube.com/@Heartshiyar0010" c="gray.5" display="block" target="_blank" fw={900}><FaYoutube size={30} color="red" /></Anchor>
-            <Anchor href="https://www.linkedin.com/in/rk-swami-b63251379/" c="gray.5" display="block" target="_blank" fw={900} ><GrLinkedin color="blue" size={30}/></Anchor>
+                    <Divider fw={900}/>
+
+          <Anchor href="https://github.com/prince-pardhan" target="_blank" c="gray.5">GitHub</Anchor><br/>
+          <Anchor href="https://news-ten-beige.vercel.app/" target="_blank" c="gray.5">News</Anchor><br/>
+          <Anchor href="https://www.snapchat.com/add/user984333902" target="_blank" c="gray.5">Snapchat</Anchor>
+        </Box>
+
+        {/* Social */}
+        <Box>
+          <Text fw={800} mb={12} c="blue">
+            FOLLOW US
+          <Divider fw={900}/>
+          </Text>
+          <Flex gap={16}>
+            <Anchor href="https://x.com/Rkswami001" target="_blank">
+              <FaTwitter size={26} />
+            </Anchor>
+            <Anchor href="https://www.facebook.com/share/r/1DAxEtF2s5/" target="_blank">
+              <FaFacebook size={26} />
+            </Anchor>
+            <Anchor href="https://www.instagram.com/prince_pardhan_325" target="_blank">
+              <FaInstagram size={26} color="red" />
+            </Anchor>
+            <Anchor href="https://www.instagram.com/rk_shiyar_001" target="_blank">
+              <FaInstagram size={26} color="red" />
+            </Anchor>
+            <Anchor href="https://www.youtube.com/@Heartshiyar0010" target="_blank">
+              <FaYoutube size={26} color="red" />
+            </Anchor>
+            <Anchor href="https://www.linkedin.com/in/rk-swami-b63251379/" target="_blank">
+              <GrLinkedin size={26} />
+            </Anchor>
           </Flex>
         </Box>
       </Flex>
-        <Divider/><Divider /><Divider /> <Divider /><Divider /><Divider /><Divider /> <Divider />  
-      <Text style={{display:"flex", alignItems:"center", justifyContent:"center"}} fw={900} c={"red"}>My chanal all links </Text>
-      
-      <Divider color="gray" />
-      <Flex
-        py={15}
-        px={{ base: 20, md: 60 }}
-        justify="space-between"
-        wrap="wrap"
-      >
-        <Text fz={13} c="gray" fw={900} >
-          © {new Date().getFullYear()} Rk swami.
-          Singer/Lyrics/Compose/Music/Mix&Master- RK SWAMI
-          <Divider /><Divider /><Divider />
+
+      {/* Divider */}
+      <Divider my={40} color="gray.8" />
+
+      {/* Bottom */}
+      <Flex justify="center">
+        <Text fz={13} c="gray.6" ta="center">
+          © {new Date().getFullYear()} RK Swami — Full Stack Developer <br />
+          Singer • Lyrics • Composer • Music • Mix & Master • Editor
         </Text>
       </Flex>
     </Box>

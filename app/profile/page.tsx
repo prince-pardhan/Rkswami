@@ -10,6 +10,7 @@ import {
   Button,
   Group,
   ActionIcon,
+  Divider,
 } from "@mantine/core";
 import {
   IconBrandYoutube,
@@ -21,24 +22,40 @@ import { CgProfile } from "react-icons/cg";
 
 const Profile = () => {
   return (
-    <Box p="xl" maw={900} mx="auto">
-      {/* ================= PROFILE CARD ================= */}
-      <Card radius="xl" shadow="md" p="xl" withBorder>
-        <Group align="center" wrap="nowrap">
+    <Box maw={1000} mx="auto" pb={80}>
+      {/* ================= HERO PROFILE ================= */}
+      <Card
+        radius="xl"
+        p="xl"
+        shadow="xl"
+        withBorder
+        style={{
+          background:
+            "linear-gradient(135deg, #ff0000 50%, #0004ff 50%)",
+          color: "blue",
+        }}
+      >
+        <Group align="center" wrap="wrap" gap={30}>
           {/* Avatar */}
           <Avatar
-            size={120}
+            size={140}
             radius="xl"
             src=""
             styles={{
-              image: { objectFit: "cover" },
+              root: {
+                border: "5px solid white",
+              },
             }}
           />
 
           {/* Info */}
           <Box>
-            <Text fz={26} fw={900}>
+            <Text fz={34} fw={900}>
               RK Swami
+            </Text>
+
+            <Text c="gray.2" fz={16} mt={4}>
+              Music • DJ • Shorts Creator • Full Stack Developer
             </Text>
 
             {/* Buttons */}
@@ -47,6 +64,7 @@ const Profile = () => {
                 leftSection={<IconBrandYoutube size={18} />}
                 color="red"
                 radius="xl"
+                size="md"
                 fw={900}
               >
                 Subscribe
@@ -54,16 +72,17 @@ const Profile = () => {
 
               <Button
                 leftSection={<IconBrandInstagram size={18} />}
-                variant="outline"
+                variant="white"
                 radius="xl"
+                size="md"
                 fw={900}
               >
                 Follow
               </Button>
             </Group>
 
-            {/* Social Media Icons */}
-            <Group mt="sm" gap="md">
+            {/* Social Icons */}
+            <Group mt="md" gap="md">
               <ActionIcon
                 component="a"
                 href="https://www.youtube.com/@Heartshiyar0010"
@@ -71,33 +90,30 @@ const Profile = () => {
                 size="lg"
                 radius="xl"
                 color="red"
-                variant="light"
-                
               >
                 <IconBrandYoutube size={22} />
               </ActionIcon>
 
               <ActionIcon
                 component="a"
-                href="https://www.instagram.com/prince_pardhan_325?igsh=dTNqMnEybndmc3c2"
+                href="https://www.instagram.com/prince_pardhan_325"
                 target="_blank"
                 size="lg"
                 radius="xl"
                 color="pink"
-                variant="light"
               >
-                <IconBrandInstagram size={22} />1
+                <IconBrandInstagram size={22} />
               </ActionIcon>
+
               <ActionIcon
                 component="a"
-                href="https://www.instagram.com/rk_shiyar_001?igsh=MWNzeW5sZ3ZqZDdscw=="
+                href="https://www.instagram.com/rk_shiyar_001"
                 target="_blank"
                 size="lg"
                 radius="xl"
                 color="pink"
-                variant="light"
               >
-                <IconBrandInstagram size={22} />2
+                <IconBrandInstagram size={22} />
               </ActionIcon>
 
               <ActionIcon
@@ -107,7 +123,6 @@ const Profile = () => {
                 size="lg"
                 radius="xl"
                 color="blue"
-                variant="light"
               >
                 <IconBrandFacebook size={22} />
               </ActionIcon>
@@ -119,11 +134,9 @@ const Profile = () => {
                 size="lg"
                 radius="xl"
                 color="dark"
-                variant="light"
               >
                 <IconBrandTwitter size={22} />
               </ActionIcon>
-
 
               <ActionIcon
                 component="a"
@@ -132,34 +145,34 @@ const Profile = () => {
                 size="lg"
                 radius="xl"
                 color="dark"
-                variant="light"
               >
-               <CgProfile  size={22}/>
-
+                <CgProfile size={22} />
               </ActionIcon>
             </Group>
-
-            <Text c="dimmed" mt={8}>
-              Music • DJ • Shorts Creator (UK)
-            </Text>
           </Box>
         </Group>
       </Card>
 
       {/* ================= STATS ================= */}
-      <SimpleGrid cols={{ base: 1, sm: 3 }} mt="xl">
+      <SimpleGrid cols={{ base: 1, sm: 3 }} mt={40}>
         {[
           { label: "Subscribers", value: "1M+" },
-          { label: "Videos", value: "300+" },
+          // { label: "Videos", value: "300+" },
           { label: "Experience", value: "2 Years" },
         ].map((item, i) => (
-          <Card key={i} withBorder radius="lg" p="md" shadow="sm">
-            <Text ta="center" fw={900} fz={24}>
+          <Card
+            key={i}
+            radius="xl"
+            shadow="md"
+            withBorder
+            p="lg"
+            
+            style={{ textAlign: "center" }}
+          >
+            <Text fw={900} fz={32} c="#0004ff">
               {item.value}
             </Text>
-            <Text ta="center" c="dimmed">
-              {item.label}
-            </Text>
+            <Text c="dimmed">{item.label}</Text>
           </Card>
         ))}
       </SimpleGrid>
@@ -167,44 +180,46 @@ const Profile = () => {
       {/* ================= ABOUT ================= */}
       <Card
         radius="xl"
-        shadow="lg"
-        p="xl"
+        shadow="xl"
         withBorder
-        mt="xl"
+        p={40}
+        mt={50}
         style={{
           background:
-            "linear-gradient(180deg, #ffffff, #f8f9fa)",
+            "linear-gradient(180deg, #ffffff, #f1f3f5)",
         }}
       >
-        <Text fw={900} fz={38} mb={6}>
+        <Text fw={900} fz={40} mb={10}>
           About Me
         </Text>
 
-        <Text c="dimmed" fz={16} lh={1.8}>
+        <Divider mb={20} />
+
+        <Text c="dimmed" fz={17} lh={1.9}>
           Hello, I’m <b>RK Swami</b> — a professional <b>DJ & Music Creator</b>.
-          I create remix songs, mashups, and viral shorts that connect
-          rhythm with emotion. 🎧
+          I specialize in remix songs, mashups, and viral short-form content
+          that connects rhythm with emotion 🎧.
           <br /><br />
 
           <i>
             “The one who controls Sama, Dana, Danda, and Bhed is called a king.”
           </i>{" "}
-          — Chanakya.
+          — Chanakya
           <br /><br />
 
           I’m also a <b>Video Editor</b> and <b>Full-Stack Developer</b> with
-          <b> 8+ months</b> of professional editing experience.
-          I’ve worked with <b>Cult Music Production</b> and
+          hands-on experience in real-world projects.
+          I’ve collaborated with <b>Cult Music Production</b> and
           <b> KS Junction Sirsa</b>.
           <br /><br />
 
-          • 200+ Long-form Videos <br />
-          • 300+ Short-form Videos <br />
-          • 2 Years Professional Editing Course
+          ✔ 200+ Long-form Videos <br />
+          ✔ 300+ Short-form Videos <br />
+          ✔ 2 Years Professional Editing Course
           <br /><br />
 
-          Every project is a new journey — where creativity,
-          timing, and passion come together to tell a powerful story. 🎬
+          Every project is a new journey where creativity,
+          timing, and passion come together to tell a powerful story 🎬.
         </Text>
       </Card>
     </Box>

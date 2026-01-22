@@ -30,7 +30,7 @@ const Navbar = () => {
       >
         <FaYoutube size={32} color="red" />
         <Text fz={30} fw={900}>
-          マҜ ຮｗᴧ𝙢i
+          Rk swami
         </Text>
       </Flex>
 
