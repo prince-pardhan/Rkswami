@@ -47,36 +47,36 @@ const Cardd = () => {
 
   return (
     <SimpleGrid
-      cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
+      cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 6 }}
       spacing={28}
     >
       {videos.map((link, index) => (
         <Card
           key={index}
-          radius="xl"
-          p="xs"
+          radius="10"
+          p="sl"
           withBorder
           style={{
             cursor: "pointer",
-            transition: "all 0.35s ease",
+            transition: "all 1.35s ease",
             overflow: "hidden",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-6px)";
             e.currentTarget.style.boxShadow =
-              "0 20px 40px rgba(0, 0, 0, 0.25)";
+              "0 10px 10px rgba(0, 0, 0, 0.25)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.transform = "translateY(90)";
             e.currentTarget.style.boxShadow = "none";
           }}
         >
-          {/* 🎬 VIDEO */}
+          
           <Box
             style={{
               position: "relative",
-              paddingBottom: "177%",
-              borderRadius: 18,
+              paddingBottom: "80%",
+              borderRadius: 20,
               overflow: "hidden",
               background: "#000",
             }}

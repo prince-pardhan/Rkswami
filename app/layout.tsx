@@ -14,7 +14,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: " マҜ ຮｗᴧ𝙢i",
-  description: "",
+  description: "rk swami",
+   icons: {
+    icon: [
+      {
+        rel: "icon",
+        url: "/rr.jpeg",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "/rr.jpeg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

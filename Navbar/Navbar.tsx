@@ -30,7 +30,7 @@ const Navbar = () => {
       >
         <FaYoutube size={32} color="red" />
         <Text fz={30} fw={900}>
-          Rk swami
+          Rk <span style={{ color: "red" }}>Swami</span>
         </Text>
       </Flex>
 

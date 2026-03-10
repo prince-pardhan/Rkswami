@@ -43,7 +43,7 @@ const Profile = () => {
             src=""
             styles={{
               root: {
-                border: "5px solid white",
+                border: "5px solid blue",
               },
             }}
           />
@@ -153,7 +153,6 @@ const Profile = () => {
         </Group>
       </Card>
 
-      {/* ================= STATS ================= */}
       <SimpleGrid cols={{ base: 1, sm: 3 }} mt={40}>
         {[
           { label: "Subscribers", value: "1M+" },
@@ -177,7 +176,6 @@ const Profile = () => {
         ))}
       </SimpleGrid>
 
-      {/* ================= ABOUT ================= */}
       <Card
         radius="xl"
         shadow="xl"
@@ -189,13 +187,13 @@ const Profile = () => {
             "linear-gradient(180deg, #ffffff, #f1f3f5)",
         }}
       >
-        <Text fw={900} fz={40} mb={10}>
+        <Text fw={900} fz={50} mb={10}>
           About Me
         </Text>
 
-        <Divider mb={20} />
+        <Divider mb={30} fw={900}/>
 
-        <Text c="dimmed" fz={17} lh={1.9}>
+        <Text c="dimmed" fz={20} lh={1.9}> 
           Hello, I’m <b>RK Swami</b> — a professional <b>DJ & Music Creator</b>.
           I specialize in remix songs, mashups, and viral short-form content
           that connects rhythm with emotion 🎧.
@@ -203,7 +201,7 @@ const Profile = () => {
 
           <i>
             “The one who controls Sama, Dana, Danda, and Bhed is called a king.”
-          </i>{" "}
+          </i>{""}
           — Chanakya
           <br /><br />
 
